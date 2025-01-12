@@ -1,0 +1,15 @@
+{% extends "cinema/admin_base.html" %}
+{% block content %}
+<div class="module" id="content">
+    <form method="post">
+        {% csrf_token %}
+        <fieldset class="module aligned">
+            {{ form.as_p }}
+        </fieldset>
+        <div class="submit-row">
+            <input type="submit" value="Зберегти" class="default">
+            <a href="{% url 'cinema_dashboard' %}" class="cancel">Скасувати</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

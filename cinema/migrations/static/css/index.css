@@ -1,0 +1,12 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+.table-list {
+    max-width: 600px;
+    margin: auto;
+}
+.table-list a {
+    text-decoration: none;
+}

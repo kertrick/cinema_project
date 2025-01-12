@@ -1,0 +1,10 @@
+{% extends "cinema/dashboard.html" %}
+{% block content %}
+<h2>Видалити запис?</h2>
+<p>Ви впевнені, що хочете видалити "{{ record }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Видалити</button>
+    <a href="{% url 'view_table' table_name %}" class="btn btn-secondary">Скасувати</a>
+</form>
+{% endblock %}

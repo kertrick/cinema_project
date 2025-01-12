@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Management</title>
+    <link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/fonts.css' %}">
+    <script src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+    <script src="{% static 'admin/js/core.js' %}"></script>
+</head>
+<body class="app-index">
+    <header class="module" id="header">
+        <div id="branding">
+            <h1><a href="{% url 'cinema_dashboard' %}">Cinema Management</a></h1>
+        </div>
+    </header>
+    <div id="content" class="module">
+        <h1>{{ title }}</h1>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>
+        <div class="module" id="footer">
+            <p>Це кастомна адмінка, створена на основі Django Admin</p>
+        </div>
+    </footer>
+</body>
+</html>

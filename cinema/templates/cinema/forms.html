@@ -1,0 +1,10 @@
+{% extends "cinema/dashboard.html" %}
+{% block content %}
+<h2>{{ action }}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Зберегти</button>
+    <a href="{% url 'view_table' table_name %}" class="btn btn-secondary">Скасувати</a>
+</form>
+{% endblock %}
