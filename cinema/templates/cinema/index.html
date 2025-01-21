@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cinema Management</title>
+    {% load static %}
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    {% comment %} <link rel="stylesheet" href="{% static 'css/index.css' %}"> {% endcomment %}
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center my-4">Cinema Management</h1>
+        <h1 class="text-center">Cinema Management</h1>
         <div class="table-list">
             <ul class="list-group">
                 {% for table in tables %}

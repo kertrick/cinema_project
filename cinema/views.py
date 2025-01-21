@@ -33,7 +33,29 @@ def add_record(request, table_name):
     if not model:
         return render(request, '404.html', status=404)
 
-    # Автоматично створюємо форму на основі моделі
+    if table_name == 'customers':  # Логіка для вкладки Customers
+        if request.method == 'POST':
+            name = request.POST.get('name')
+            phone = request.POST.get('phone')
+            email = request.POST.get('email')
+
+            # Перевіряємо, чи всі поля заповнені
+            if not all([name, phone, email]):
+                return render(request, 'cinema/add_record.html', {
+                    'error': 'Всі поля обов’язкові для заповнення.',
+                    'table_name': table_name,
+                })
+
+            # Додаємо новий запис
+            model.objects.create(name=name, phone=phone, email=email)
+
+            # Повертаємося до таблиці
+            return redirect('view_table', table_name=table_name)
+
+        # Відображаємо форму
+        return render(request, 'cinema/add_record.html', {'table_name': table_name})
+
+    # Логіка для інших таблиць
     Form = modelform_factory(model, exclude=[])
     if request.method == 'POST':
         form = Form(request.POST)
