@@ -1,5 +1,6 @@
 {% extends 'cinema/base.html' %}
 
+
 {% block title %}{{ table_name|title }}{% endblock %}
 
 {% block content %}
@@ -11,6 +12,7 @@
 </div>
 
 <!-- Список записів -->
+{% comment %} {% load custom_filters %} {% endcomment %}
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -23,13 +25,13 @@
     <tbody>
         {% for record in records %}
         <tr>
-            {% for value in record.values %}
-            <td>{{ value }}</td>
+            {% for column in columns %}
+            {% load custom_filters %}
+            <td>{{ record|get_item:column }}</td>
             {% endfor %}
             <td>
                 <a href="{% url 'edit_record' table_name record.id %}" class="btn btn-warning btn-sm">Редагувати</a>
                 <a href="{% url 'delete_record' table_name record.id %}" class="btn btn-danger btn-sm">Видалити</a>
-                <a href="{% url 'view_table' table_name %}" class="btn btn-secondary btn-sm">Керувати</a>
             </td>
         </tr>
         {% empty %}

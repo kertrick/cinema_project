@@ -18,12 +18,16 @@ def dashboard(request, table_name):
 
     # Витягуємо всі записи таблиці
     records = model.objects.all()
+    records_as_dicts = [
+        {field.name: getattr(record, field.name) for field in model._meta.fields}
+        for record in records
+    ]
     columns = [field.name for field in model._meta.fields]
     column_count = len(columns) + 1
 
     return render(request, 'cinema/dashboard.html', {
         'table_name': table_name,
-        'records': records,
+        'records': records_as_dicts,
         'columns': columns,
         'column_count': column_count,
     })
