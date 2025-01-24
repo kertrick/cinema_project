@@ -1,45 +1,27 @@
 body {
     background-color: #343a40;
     color: white;
-    display: flex;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
 }
 
 .sidebar {
     background-color: #495057;
     /* Інший колір для панелі */
-    width: 40%;
+    width: 30%;
     /* Розмір панелі */
     height: 100vh;
     /* Висота на весь екран */
-    padding: 20px;
+    padding: 40px;
     box-sizing: border-box;
 }
 
 .content {
     width: 70%;
     padding: 20px;
-    overflow-y: auto;
 }
 
-.hidden {
-    display: none;
-}
-
-.btn-item {
-    margin-bottom: 10px;
-}
-
-tbody tr {
-    background-color: #343a40;
-    /* Чорний фон для рядків */
-}
-
-tbody tr:hover {
-    background-color: #444;
-    /* Трохи світліший чорний */
+.sidebar h3 {
+    color: #f8f9fa;
+    /* Світліший текст для заголовка */
 }
 
 .list-group-item {
